@@ -1,0 +1,129 @@
+create table LOG_CMP_TLC_FU_BASE
+(
+  log_date                DATE,
+  time_inserted           VARCHAR2(8),
+  skp_client              NUMBER,
+  skp_credit_case         NUMBER,
+  id_cuid                 NUMBER,
+  text_contract_number    VARCHAR2(80),
+  name_full               VARCHAR2(255),
+  code_gender             VARCHAR2(10),
+  dtime_proposal          DATE,
+  date_application_expiry DATE,
+  amt_credit              NUMBER,
+  num_tenor               NUMBER,
+  rate_interest           NUMBER,
+  text_loan_purpose       VARCHAR2(30),
+  code_credit_substatus   VARCHAR2(10),
+  name_provider           VARCHAR2(50),
+  name_credit_status      VARCHAR2(255),
+  name_loan_purpose       VARCHAR2(255),
+  text_contact            VARCHAR2(255),
+  id_ktp                  VARCHAR2(80),
+  risk_group              VARCHAR2(5),
+  min_limit               INTEGER,
+  max_limit               INTEGER,
+  dtime_get_leads         TIMESTAMP(6),
+  default_interest_rate   NUMBER(4,2),
+  max_tenor               NUMBER(5)
+)
+partition by range (LOG_DATE) interval (NUMTOYMINTERVAL(1,'MONTH'))
+(
+  partition INIT_PART values less than (TO_DATE(' 2018-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 105856K
+      next 1520K
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P493851 values less than (TO_DATE(' 2018-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P507063 values less than (TO_DATE(' 2018-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P516412 values less than (TO_DATE(' 2018-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P525787 values less than (TO_DATE(' 2018-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P541569 values less than (TO_DATE(' 2018-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P553355 values less than (TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P569701 values less than (TO_DATE(' 2018-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+

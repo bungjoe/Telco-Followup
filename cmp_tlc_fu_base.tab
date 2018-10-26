@@ -1,0 +1,65 @@
+create table CMP_TLC_FU_BASE
+(
+  skp_client              NUMBER,
+  skp_credit_case         NUMBER,
+  id_cuid                 NUMBER,
+  text_contract_number    VARCHAR2(80),
+  name_full               VARCHAR2(255),
+  code_gender             VARCHAR2(10),
+  dtime_proposal          DATE,
+  date_application_expiry DATE,
+  amt_credit              NUMBER,
+  num_tenor               NUMBER,
+  rate_interest           NUMBER,
+  text_loan_purpose       VARCHAR2(30),
+  code_credit_substatus   VARCHAR2(10),
+  name_provider           VARCHAR2(50),
+  name_credit_status      VARCHAR2(255),
+  name_loan_purpose       VARCHAR2(255),
+  text_contact            VARCHAR2(255),
+  id_ktp                  VARCHAR2(80),
+  risk_group              VARCHAR2(5),
+  min_limit               INTEGER,
+  max_limit               INTEGER,
+  dtime_get_leads         TIMESTAMP(6),
+  default_interest_rate   NUMBER(4,2),
+  max_tenor               NUMBER(5)
+)
+tablespace AP_CRM
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 80K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index CTFB_IX01 on CMP_TLC_FU_BASE (TRUNC(DTIME_GET_LEADS))
+  tablespace AP_CRM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 80K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index CTFB_IX02 on CMP_TLC_FU_BASE (SKP_CREDIT_CASE, SKP_CLIENT)
+  tablespace AP_CRM
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 80K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+

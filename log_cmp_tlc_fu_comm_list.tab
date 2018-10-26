@@ -1,0 +1,127 @@
+create table LOG_CMP_TLC_FU_COMM_LIST
+(
+  log_date                       DATE,
+  time_inserted                  VARCHAR2(8),
+  date_call                      DATE,
+  skf_communication_record       INTEGER not null,
+  skp_client                     INTEGER not null,
+  skp_credit_case                INTEGER not null,
+  name_communication_channel     VARCHAR2(255),
+  name_communication_type        VARCHAR2(255),
+  name_communication_subtype     VARCHAR2(255),
+  name_comm_subtype_specif       VARCHAR2(255),
+  name_comm_subtype_sub_specif   VARCHAR2(255),
+  name_communication_status      VARCHAR2(255),
+  name_communication_result_type VARCHAR2(255),
+  text_note                      VARCHAR2(4000),
+  text_contact                   VARCHAR2(255),
+  sub_campaign                   VARCHAR2(248),
+  action                         VARCHAR2(48),
+  date_promise                   VARCHAR2(2000),
+  sa_code                        VARCHAR2(2000),
+  sa_name                        VARCHAR2(2000),
+  sa_phone                       VARCHAR2(2000),
+  sa_email                       VARCHAR2(2000),
+  pos_name                       VARCHAR2(2000),
+  pos_code                       VARCHAR2(2000)
+)
+partition by range (LOG_DATE) interval (NUMTOYMINTERVAL(1,'MONTH'))
+(
+  partition INIT_PART values less than (TO_DATE(' 2018-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 105856K
+      next 1520K
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P493853 values less than (TO_DATE(' 2018-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P507065 values less than (TO_DATE(' 2018-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P516414 values less than (TO_DATE(' 2018-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P525789 values less than (TO_DATE(' 2018-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P541571 values less than (TO_DATE(' 2018-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P553357 values less than (TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P569703 values less than (TO_DATE(' 2018-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 80K
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+
