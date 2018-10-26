@@ -44,7 +44,8 @@ begin
              null tlc_fu_info9,
              null tlc_fu_info10,
              'TELCO_FU' CAMPAIGN_TYPE,
-             ROW_NUMBER() OVER (ORDER BY date_application_expiry ASC) NUMS
+             ROW_NUMBER() OVER (ORDER BY date_application_expiry ASC) NUMS,
+						 trunc(sysdate)
       from ap_crm.cmp_tlc_fu_base bs
       left join ap_crm.cmp_tlc_fu_comm_list cl1 on bs.skp_credit_case = cl1.skp_credit_case
       left join owner_dwh.f_Credit_case_ad fcc on bs.skp_credit_case = fcc.SKp_CREDIT_CASE 
@@ -66,5 +67,4 @@ begin
       pstats('cmp_tlc_fu_call_list');
       AP_PUBLIC.CORE_LOG_PKG.pFinish;
 end;
-/
 
